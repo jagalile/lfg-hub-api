@@ -1,0 +1,78 @@
+[
+    {
+        "id": "a20d3226-fe80-43e6-b06d-133dfc6dbdfc",
+        "username": "string",
+        "email": "string",
+        "password": "string",
+        "dm": false,
+        "player": true,
+        "lfg": true,
+        "language": [
+            "string"
+        ],
+        "timestamp": "string",
+        "games": [
+            "string"
+        ],
+        "platforms": [
+            "string"
+        ]
+    },
+    {
+        "id": "d08cdfd9-0137-487a-b33c-a7b5505f4421",
+        "username": "string",
+        "email": "string",
+        "password": "string",
+        "dm": false,
+        "player": true,
+        "lfg": true,
+        "language": [
+            "string"
+        ],
+        "timestamp": "string",
+        "games": [
+            "string"
+        ],
+        "platforms": [
+            "string"
+        ]
+    },
+    {
+        "id": "ce412a84-4899-47cf-9caa-59856474c3dc",
+        "username": "string",
+        "email": "string",
+        "password": "string",
+        "dm": false,
+        "player": true,
+        "lfg": true,
+        "language": [
+            "string"
+        ],
+        "timestamp": "string",
+        "games": [
+            "string"
+        ],
+        "platforms": [
+            "string"
+        ]
+    },
+    {
+        "id": "4747f82c-0638-4c88-80b0-c228bcc2afc1",
+        "username": "string",
+        "email": "string",
+        "password": "string",
+        "dm": false,
+        "player": true,
+        "lfg": true,
+        "language": [
+            "string"
+        ],
+        "timestamp": "string",
+        "games": [
+            "string"
+        ],
+        "platforms": [
+            "string"
+        ]
+    }
+]
