@@ -1,6 +1,7 @@
 from uuid import uuid4, UUID
 import json
 from typing import List
+import time
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -15,13 +16,13 @@ class User(BaseModel):
     username: str
     email: str
     password: str
-    dm: bool | None = False
-    player: bool | None = True
-    lfg: bool | None = True
-    language: list | None = []
-    timestamp: str | None = None
-    games: list | None = []
-    platforms: list | None = []
+    dm: bool = False
+    player: bool = True
+    lfg: bool = True
+    language: list = []
+    timestamp: float = time.time()
+    games: list = []
+    platforms: list = []
 
 
 class UserOut(BaseModel):
@@ -32,7 +33,7 @@ class UserOut(BaseModel):
     player: bool
     lfg: bool
     language: list
-    timestamp: str
+    timestamp: float
     games: list
     platforms: list
 
