@@ -20,7 +20,7 @@ class User(BaseModel):
     player: bool = True
     lfg: bool = True
     language: list = []
-    timestamp: float = time.time()
+    timestamp: Union[str, None] = None
     games: list = []
     platforms: list = []
 
@@ -33,7 +33,7 @@ class UserOut(BaseModel):
     player: bool
     lfg: bool
     language: list
-    timestamp: float
+    timestamp: str
     games: list
     platforms: list
 
