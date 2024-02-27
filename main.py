@@ -1,6 +1,6 @@
 from uuid import uuid4, UUID
 import json
-from typing import List
+from typing import List, Optional, Union
 import time
 
 from fastapi import FastAPI, HTTPException
@@ -57,14 +57,14 @@ PLATFORM_JSON = "./database/platform.json"
 
 
 @app.get("/users", response_model=List[UserOut])
-def get_users_list(skip: int | None = 0, limit: int | None = 10) -> List[UserOut]:
+def get_users_list(skip: Optional[int] = 0, limit: Optional[int] = 10) -> List[UserOut]:
     users = read_json(USER_JSON)
 
     return users[skip:limit]
 
 
 @app.get("/user/{user_id}", response_model=UserOut)
-def get_user_info(user_id: UUID) -> User | bool:
+def get_user_info(user_id: UUID) -> Union[User, bool]:
     users = read_json(USER_JSON)
     found_user = next((user for user in users if user["id"] == str(user_id)), False)
 
@@ -93,14 +93,14 @@ def delete_user(user_id: UUID):
 
 
 @app.get("/games")
-def get_games_list(skip: int | None = 0, limit: int | None = 10) -> List[Game]:
+def get_games_list(skip: Optional[int] = 0, limit: Optional[int] = 10) -> List[Game]:
     games = read_json(GAME_JSON)
 
     return games[skip:limit]
 
 
 @app.get("/game/{game_id}")
-def get_game_info(game_id: UUID) -> Game | bool:
+def get_game_info(game_id: UUID) -> Union[Game, bool]:
     games = read_json(GAME_JSON)
     found_game = next((game for game in games if game["id"] == str(game_id)), False)
 
@@ -129,14 +129,16 @@ def delete_game(game_id: UUID):
 
 
 @app.get("/platforms")
-def get_platforms_list(skip: int | None = 0, limit: int | None = 10) -> List[Platform]:
+def get_platforms_list(
+    skip: Optional[int] = 0, limit: Optional[int] = 10
+) -> List[Platform]:
     platforms = read_json(PLATFORM_JSON)
 
     return platforms[skip:limit]
 
 
 @app.get("/platform/{platform_id}")
-def get_platform_info(platform_id: UUID) -> Platform | bool:
+def get_platform_info(platform_id: UUID) -> Union[Platform, bool]:
     platforms = read_json(PLATFORM_JSON)
     found_platform = next(
         (platform for platform in platforms if platform["id"] == str(platform_id)),
